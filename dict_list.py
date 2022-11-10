@@ -6,3 +6,8 @@ gender_type = {
     'female': texttospeech.SsmlVoiceGender.FEMALE,
     'neutral': texttospeech.SsmlVoiceGender.NEUTRAL
 }
+
+lang_code = {
+    'English': 'en-US',
+    'Japanese': 'ja-JP'
+}
