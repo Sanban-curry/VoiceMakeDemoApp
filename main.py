@@ -1,16 +1,22 @@
 import os
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'secret.json'
+from google.cloud import texttospeech
 
+
+import app
+
+gender_type = app.gender_type
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'secret.json'
+gender = 'default'
 def main():
-    from google.cloud import texttospeech
+
 
     client = texttospeech.TextToSpeechClient()
 
-    synthesis_input = texttospeech.SynthesisInput(text="Hello, World!")
+    synthesis_input = texttospeech.SynthesisInput(text="こんにちは、私はとってもイケメンな天才青年です。")
 
     voice = texttospeech.VoiceSelectionParams(
-        language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        language_code="ja-JP", ssml_gender=gender_type[gender]
     )
 
     audio_config = texttospeech.AudioConfig(
